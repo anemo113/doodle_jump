@@ -20,9 +20,9 @@ Controller::~Controller()
     delete scene;
 }
 
-void Controller::addButton(int x, int y, QString str)
+void Controller::addButton(int x, int y, QString str, Controller * ctrl)
 {
-    buttonList.push_back(new Button{str});
+    buttonList.push_back(new Button{str, ctrl});
     //add to scene
     scene->addItem(buttonList.last());
     buttonList.last()->setPos(x, y);

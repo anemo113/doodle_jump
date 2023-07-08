@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     Button.cpp \
     Controller.cpp \
+    Intro.cpp \
     Menu.cpp \
     View.cpp \
     main.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     Button.h \
     Controller.h \
+    Intro.h \
     Menu.h \
     View.h
 

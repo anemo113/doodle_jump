@@ -20,7 +20,7 @@ private:
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
-    void addButton(int x, int y, QString str);
+    void addButton(int x, int y, QString str, Controller * ctrl);
 
 signals:
 

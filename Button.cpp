@@ -3,9 +3,10 @@
 using namespace std;
 
 
-Button::Button(QString str)
+Button::Button(QString str, Controller * bController)
 {
     action = str;
+    buttonController = bController;
 
     if(str == "Play") {
      setPixmap(QPixmap(":/images/playButton.png"));
@@ -28,12 +29,12 @@ Button::Button(QString str)
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // To Do
-    if(action == "Play") cout << 1 << endl;
+    if(action == "Play") intro();
 
     if(action == "Help") cout << 2 << endl;
 
     if(action == "Exit")  exit(1);
 
-    if(action == "Back") cout << 4 << endl;
+    if(action == "Back") menu(buttonController);
 
 }
