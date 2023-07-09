@@ -31,6 +31,12 @@ void View::menu()
     //clear the screen
     viewController->scene->clear();
 
+    //doodler picture
+    QGraphicsPixmapItem * menuPic = new QGraphicsPixmapItem();
+    menuPic->setPixmap(QPixmap(":/images/menuPic.png"));
+    menuPic->setPos(0, 20);
+    viewController->scene->addItem(menuPic);
+
     //play button
     Button * playButton = new Button("Play");
     playButton->setPos(200, 375);
@@ -81,9 +87,9 @@ void View::help()
     viewController->scene->clear();
 
     //help picture
-    QGraphicsPixmapItem * pic = new QGraphicsPixmapItem();
-    pic->setPixmap(QPixmap(":/images/help.jpg"));
-    viewController->scene->addItem(pic);
+    QGraphicsPixmapItem * helpPic = new QGraphicsPixmapItem();
+    helpPic->setPixmap(QPixmap(":/images/helpPic.jpg"));
+    viewController->scene->addItem(helpPic);
 
     //back button
     Button * backButton = new Button("Back");
