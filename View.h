@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QGraphicsView>
 #include <QTimer>
-#include "Menu.h"
+#include "Controller.h"
 
 
 class View : public QGraphicsView
@@ -18,6 +18,10 @@ private:
 public:
     explicit View();
     ~View();
+
+public slots:
+    void menu();
+    void intro();
 
 signals:
 

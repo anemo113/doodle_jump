@@ -4,25 +4,17 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
-//#include "Menu.h"
-
-class Controller;
-void menu(Controller * menuController);
-void intro();
 
 class Button: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
-private:
-    QString action;
-    Controller * buttonController;
 public:
     //constructor
-    Button(QString str, Controller * bController);
+    Button(QString str);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 signals:
-
+    void clicked();
 };
 
 #endif // BUTTON_H

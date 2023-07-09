@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 
     View *myView = new View();
     myView->show();
+    myView->menu();
 
     return a.exec();
 }

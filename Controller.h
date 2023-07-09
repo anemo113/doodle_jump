@@ -5,7 +5,6 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
-#include "Button.h"
 
 class Controller : public QObject
 {
@@ -15,12 +14,10 @@ private:
     QGraphicsScene *scene;
     QTimer *Timer;
     QGraphicsRectItem *holder;
-    QList<Button *> buttonList;
 
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
-    void addButton(int x, int y, QString str, Controller * ctrl);
 
 signals:
 

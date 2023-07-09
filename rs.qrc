@@ -6,5 +6,7 @@
         <file>playButton.png</file>
         <file>backButton.png</file>
         <file>platform1.png</file>
+        <file>multiButton.png</file>
+        <file>singleButton.png</file>
     </qresource>
 </RCC>
