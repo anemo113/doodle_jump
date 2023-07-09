@@ -11,12 +11,14 @@ CONFIG += c++17
 SOURCES += \
     Button.cpp \
     Controller.cpp \
+    Platform.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Button.h \
     Controller.h \
+    Platform.h \
     View.h
 
 # Default rules for deployment.
