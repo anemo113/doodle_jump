@@ -5,6 +5,8 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
+#include "Platform.h"
+#include "Doodler.h"
 
 class Controller : public QObject
 {
