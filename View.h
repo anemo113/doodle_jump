@@ -22,6 +22,9 @@ public:
 public slots:
     void menu();
     void intro();
+    void help();
+    void singleMode();
+    void multiMode();
 
 signals:
 

@@ -8,5 +8,6 @@
         <file>platform1.png</file>
         <file>multiButton.png</file>
         <file>singleButton.png</file>
+        <file>help.jpg</file>
     </qresource>
 </RCC>
