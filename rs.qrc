@@ -5,11 +5,15 @@
         <file>exitButton.png</file>
         <file>playButton.png</file>
         <file>backButton.png</file>
-        <file>platform1.png</file>
         <file>multiButton.png</file>
         <file>singleButton.png</file>
         <file>helpPic.jpg</file>
         <file>menuPic.png</file>
-        <file>Doodler.png</file>
+        <file>doodler.png</file>
+        <file>platform1.png</file>
+        <file>platform2.png</file>
+        <file>platform3.png</file>
+        <file>platform4.png</file>
+        <file>platform6.png</file>
     </qresource>
 </RCC>

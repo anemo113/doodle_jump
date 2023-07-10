@@ -9,18 +9,18 @@ Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer 
 
     // add to scene
     platformScene->addItem(this);
-    setPos(rand()%485, 0);
+    setPos(200, 430);
 
 
     // connect timer to move
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    // connect(timer,SIGNAL(timeout()),this,SLOT(movetoDown()));
 }
 
 
-void Platform::move()
+void Platform::movetoDown()
 {
     // move down
-    setPos(x(), y() + 50);
+    setPos(x(), y() + 5);
 
     // remove and delete
     if(y() > 750) {

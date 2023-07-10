@@ -5,21 +5,26 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
-#include "Platform.h"
-#include "Doodler.h"
+#include <Platform.h>
+#include <Doodler.h>
 
 class Controller : public QObject
 {
     Q_OBJECT
     friend class View;
+    friend class Menu;
 private:
     QGraphicsScene *scene;
-    QTimer *Timer;
+    QTimer *ctimer;
     QGraphicsRectItem *holder;
+    QList <Platform *> platformList;
+    QList <Doodler *> doodlerList;
 
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
+    void addPlatform();
+    void addDoodler();
 
 signals:
 

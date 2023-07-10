@@ -18,7 +18,7 @@ public:
     Platform(QGraphicsScene *platformScene,QGraphicsItem *parent, QTimer *timer);
 
 public slots:
-    void move(); // To Do
+    void movetoDown(); // To Do
 };
 
 #endif // PLATFORM_H

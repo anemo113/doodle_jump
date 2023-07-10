@@ -26,6 +26,15 @@ View::~View()
     delete viewController;
 }
 
+void View::incermentTime()
+{
+    ++seconds;
+
+    if(seconds % 2 == 0) {
+        viewController->addPlatform();
+    }
+}
+
 void View::menu()
 {
     //clear the screen
@@ -108,6 +117,12 @@ void View::singleMode()
     backButton->setPos(0, 0);
     connect(backButton, SIGNAL(clicked()), this, SLOT(menu()));
     viewController->scene->addItem(backButton);
+
+    // create doodler
+    viewController->addDoodler();
+
+    // create platform
+    viewController->addPlatform();
 }
 
 void View::multiMode()
