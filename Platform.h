@@ -6,20 +6,20 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <cstdlib>
+#include "Doodler.h"
 
 class Platform : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 
+    friend class Doodler;
 private:
     QGraphicsScene *platformScene;
-    int xPos;
-    int yPos;
-    int doodler_xPos;
-    float speed;
+    static float speed;
+    static int doodler_xPos;
 
 public:
-    Platform(QGraphicsScene *platformScene,QGraphicsItem *parent, QTimer *timer, int x, int y, int doodler_x);
+    Platform(QGraphicsScene *platformScene,QGraphicsItem *parent, QTimer *timer, int x, int y);
 
 public slots:
     void movetoDown(); // To Do

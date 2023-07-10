@@ -1,17 +1,15 @@
 #include "Platform.h"
 
 
-Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer *timer, int x, int y, int doodler_x)
+float Platform::speed = 9;
+int Platform::doodler_xPos;
+
+Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer *timer, int x, int y)
     : QObject(), QGraphicsPixmapItem(parent) , platformScene(platformScene)
 {
-    speed = 1;
-
     // set picture
     setPixmap(QPixmap(":/images/platform1.png"));
-    xPos = x;
-    yPos = y;
-    doodler_xPos = doodler_x;
-    setPos(xPos, yPos);
+    setPos(x, y);
 
     // add to scene
     platformScene->addItem(this);
@@ -20,24 +18,20 @@ Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer 
     connect(timer,SIGNAL(timeout()),this,SLOT(movetoDown()));
 }
 
-
 void Platform::movetoDown()
 {
 
-    if((y() <= 589) && (((doodler_xPos <= x() + 49) && (x() - 40 <= doodler_xPos)))){
-        speed = 5;
+    if(((y() <= 589) && (y() >= 550)) && (((doodler_xPos <= x() + 49) && (x() - 40 <= doodler_xPos)))){
+        speed = 9;
     }
 
-    speed -= 0.17;
+    speed -= 0.05;
 
     // move down
     setPos(x(), y() + speed);
-    xPos = x();
-    yPos = y();
 
-    // remove and delete
-    if(y() > 750) {
-        platformScene->removeItem(this);
-        delete this;
+    // returning back the out of box item
+    if(y() > 750){
+        setPos(rand() % 500, y() - 700);
     }
 }

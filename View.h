@@ -21,7 +21,7 @@ public:
     ~View();
 
 public slots:
-    void incermentTime();
+    void incrementTime();
     void menu();
     void intro();
     void help();

@@ -1,5 +1,7 @@
 #include "View.h"
 #include "Button.h"
+#include <iostream>
+using namespace std;
 
 View::View() : QGraphicsView()
 {
@@ -17,7 +19,6 @@ View::View() : QGraphicsView()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-
 }
 
 View::~View()
@@ -26,13 +27,11 @@ View::~View()
     delete viewController;
 }
 
-void View::incermentTime()
+void View::incrementTime()
 {
+
     ++seconds;
 
-//    if(seconds % 2 == 0) {
-//        viewController->addPlatform();
-//    }
 }
 
 void View::menu()
@@ -119,10 +118,12 @@ void View::singleMode()
     viewController->scene->addItem(backButton);
 
     // create platform
-    for(int i = 1; i <= 9; i++){
-        viewController->addPlatform(rand() % 550, i * 60, 250);
+    for(int i = 0; i <= 12; i++){
+        if(i != 10){
+            viewController->addPlatform(rand() % 500, i * 60);
+        }
     }
-    viewController->addPlatform(245, 590, 250);
+    viewController->addPlatform(245, 590);
 
     // create doodler
     viewController->addDoodler();

@@ -1,4 +1,5 @@
 #include "Doodler.h"
+#include "Platform.h"
 
 Doodler::Doodler(QGraphicsScene *doodlerScene, QGraphicsItem *parent, QTimer *timer)
     : QObject() , QGraphicsPixmapItem(parent) , doodlerScene(doodlerScene)
@@ -10,6 +11,7 @@ Doodler::Doodler(QGraphicsScene *doodlerScene, QGraphicsItem *parent, QTimer *ti
     doodlerScene->addItem(this);
     setPos(255,550);
 
+    Platform::doodler_xPos = 255;
 }
 
 void Doodler::keyPressEvent(QKeyEvent *keyEvent)
@@ -26,10 +28,12 @@ void Doodler::keyPressEvent(QKeyEvent *keyEvent)
 
     if(x() >= 530){
         setPos(x() - 550, y());
+
     }
 
     if(x() <= -20){
         setPos(x() + 550, y());
     }
+    Platform::doodler_xPos = x();
 }
 
