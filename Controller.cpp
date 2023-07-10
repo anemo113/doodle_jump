@@ -22,9 +22,9 @@ Controller::~Controller()
     delete scene;
 }
 
-void Controller::addPlatform()
+void Controller::addPlatform(int x, int y, int doodler_x)
 {
-    platformList.push_back(new Platform(scene,holder,ctimer));
+    platformList.push_back(new Platform(scene,holder,ctimer, x, y, doodler_x));
 }
 
 void Controller::addDoodler()

@@ -23,7 +23,7 @@ private:
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
-    void addPlatform();
+    void addPlatform(int x, int y, int doodler_x);
     void addDoodler();
 
 signals:

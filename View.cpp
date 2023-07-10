@@ -30,9 +30,9 @@ void View::incermentTime()
 {
     ++seconds;
 
-    if(seconds % 2 == 0) {
-        viewController->addPlatform();
-    }
+//    if(seconds % 2 == 0) {
+//        viewController->addPlatform();
+//    }
 }
 
 void View::menu()
@@ -118,11 +118,15 @@ void View::singleMode()
     connect(backButton, SIGNAL(clicked()), this, SLOT(menu()));
     viewController->scene->addItem(backButton);
 
+    // create platform
+    for(int i = 1; i <= 9; i++){
+        viewController->addPlatform(rand() % 550, i * 60, 250);
+    }
+    viewController->addPlatform(245, 590, 250);
+
     // create doodler
     viewController->addDoodler();
 
-    // create platform
-    viewController->addPlatform();
 }
 
 void View::multiMode()
