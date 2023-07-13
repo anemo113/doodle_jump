@@ -122,7 +122,7 @@ void View::singleMode()
 
     // create platform
     for(int i = 0; i <= 15; i++){
-        if(i!=12 && i%4 != 0 && i!=5 && i!=6 && i!=7 && i!=8 && i!=9){
+        if(i!=12 && i%4 != 0 && i!=5 && i!=6 && i!=7 && i!=8 && i!=9 && i!=10){
             viewController->addPlatform(rand() % 500, i * 50,"Green");
         }
         if(i%4 == 0 && i>0) {
@@ -141,6 +141,9 @@ void View::singleMode()
             viewController->addPlatform(rand() % 500, i * 50,"Speed");
         }
         if(i == 9) {
+            viewController->addPlatform(rand() % 500, i * 50,"Heart");
+        }
+        if(i == 10) {
             viewController->addPlatform(rand() % 500, i * 50,"Shield");
         }
     }

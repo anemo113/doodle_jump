@@ -18,10 +18,11 @@ private:
     QGraphicsScene *platformScene;
     QTimer *platformTimer;
     static float speed;
-    static int score;
+    static int hitpoints;
     static int platformSecond;
     static int doodler_xPos;
     static bool shield;
+    static bool endGame;
     QString type,type2;
     int strength;
     int m,k,n;
