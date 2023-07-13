@@ -16,9 +16,12 @@ class Platform : public QObject, public QGraphicsPixmapItem
     //friend class Doodler2;
 private:
     QGraphicsScene *platformScene;
+    QTimer *platformTimer;
     static float speed;
     static int score;
+    static int platformSecond;
     static int doodler_xPos;
+    static bool shield;
     QString type,type2;
     int strength;
     int m,k,n;
@@ -28,7 +31,8 @@ public:
     Platform(QGraphicsScene *platformScene,QGraphicsItem *parent, QTimer *timer, int x, int y,QString s);
 
 public slots:
-    void Move(); // To Do
+    void Move();
+    void countSecond();
 };
 
 #endif // PLATFORM_H

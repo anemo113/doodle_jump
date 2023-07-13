@@ -121,24 +121,27 @@ void View::singleMode()
     viewController->scene->addItem(backButton);
 
     // create platform
-    for(int i = 0; i <= 12; i++){
-        if(i != 10 && i%4 != 0 && i!=5 && i!=6 && i!=7 && i!=8){
-            viewController->addPlatform(rand() % 500, i * 60,"Green");
+    for(int i = 0; i <= 15; i++){
+        if(i!=12 && i%4 != 0 && i!=5 && i!=6 && i!=7 && i!=8 && i!=9){
+            viewController->addPlatform(rand() % 500, i * 50,"Green");
         }
         if(i%4 == 0 && i>0) {
-            viewController->addPlatform(rand() % 500, i * 60,"Brown");
+            viewController->addPlatform(rand() % 500, i * 50,"Brown");
         }
         if(i == 5) {
-            viewController->addPlatform(rand() % 500, i * 60,"Move");
+            viewController->addPlatform(rand() % 500, i * 50,"Move");
         }
         if(i == 6) {
-            viewController->addPlatform(rand() % 500, i * 60,"Spring");
+            viewController->addPlatform(rand() % 500, i * 50,"Spring");
         }
         if(i == 7) {
-            viewController->addPlatform(rand() % 500, i * 60,"Rocket");
+            viewController->addPlatform(rand() % 500, i * 50,"Rocket");
         }
         if(i == 8) {
-            viewController->addPlatform(rand() % 500, i * 60,"Speed");
+            viewController->addPlatform(rand() % 500, i * 50,"Speed");
+        }
+        if(i == 9) {
+            viewController->addPlatform(rand() % 500, i * 50,"Shield");
         }
     }
     viewController->addPlatform(245, 590,"Green");

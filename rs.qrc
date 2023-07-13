@@ -18,5 +18,7 @@
         <file>doodler2.png</file>
         <file>platform5.png</file>
         <file>background2.png</file>
+        <file>heart.png</file>
+        <file>shield.png</file>
     </qresource>
 </RCC>
