@@ -85,6 +85,11 @@ Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer 
     }
 }
 
+void Platform::endOfGame()
+{
+
+}
+
 void Platform::Move()
 {
 
@@ -94,6 +99,7 @@ void Platform::Move()
             else if(type == "Spring") speed = 30;
             else if(type == "Rocket") speed = 40;
             else if(type == "Speed") speed = 20;
+            else if(type == "Heart") {speed = 10; hitpoints++;}
             else if(type == "Shield"){
                 speed = 10;
                 platformSecond = 0;
@@ -127,11 +133,12 @@ void Platform::Move()
     // returning back the out of box item
     if(y() > 750 || strength == 0) {
 
-        if(type2 == "Spring" || type2 == "Rocket" || type2 == "Speed" || type2 == "Shield") {
+        if(type2 == "Spring" || type2 == "Rocket" || type2 == "Speed" || type2 == "Shield" || type2 == "Heart") {
             if(k%m == 0 && n < 10) {
                 if(type2 == "Spring") { type = "Spring"; this->setPixmap(QPixmap(":/images/platform4.png")); }
                 if(type2 == "Rocket") { type = "Rocket"; this->setPixmap(QPixmap(":/images/platform5.png")); }
                 if(type2 == "Speed") { type = "Speed"; this->setPixmap(QPixmap(":/images/platform6.png")); }
+                if(type2 == "Heart") { type = "Heart"; this->setPixmap(QPixmap(":/images/heart.png")); }
                 if(type2 == "Shield"){
                     if(shield == false) { type = "Shield"; this->setPixmap(QPixmap(":/images/shield.png")); }
                     else { type = "Green"; this->setPixmap(QPixmap(":/images/platform1.png")); }
@@ -146,15 +153,17 @@ void Platform::Move()
 
         if(type == "Green") strength = 5;
         if(type == "Shield") strength = 1;
+        if(type == "Heart") strength = 1;
         if(type == "Brown") strength = 1;
     }
 
     if(shield == true && y() < -20){
-        if(type2 == "Spring" || type2 == "Rocket" || type2 == "Speed" || type2 == "Shield") {
+        if(type2 == "Spring" || type2 == "Rocket" || type2 == "Speed" || type2 == "Shield" || type2 == "Heart") {
             if(k%m == 0 && n < 10) {
                 if(type2 == "Spring") { type = "Spring"; this->setPixmap(QPixmap(":/images/platform4.png")); }
                 if(type2 == "Rocket") { type = "Rocket"; this->setPixmap(QPixmap(":/images/platform5.png")); }
                 if(type2 == "Speed") { type = "Speed"; this->setPixmap(QPixmap(":/images/platform6.png")); }
+                if(type2 == "Heart") { type = "Heart"; this->setPixmap(QPixmap(":/images/heart.png")); }
                 if(type2 == "Shield"){
                     if(shield == false) { type = "Shield"; this->setPixmap(QPixmap(":/images/shield.png")); }
                     else { type = "Green"; this->setPixmap(QPixmap(":/images/platform1.png")); }
@@ -169,6 +178,7 @@ void Platform::Move()
 
         if(type == "Green") strength = 5;
         if(type == "Shield") strength = 1;
+        if(type == "Heart") strength = 1;
         if(type == "Brown") strength = 1;
     }
 
@@ -188,6 +198,10 @@ void Platform::Move()
             setPixmap(QPixmap(":/images/endGame.png"));
             setPos(145, 145);
             platformScene->addItem(this);
+        }
+        else if(hitpoints > 0){
+            speed = 40;
+            hitpoints--;
         }
     }
 }

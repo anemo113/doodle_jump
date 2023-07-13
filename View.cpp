@@ -138,13 +138,13 @@ void View::singleMode()
             viewController->addPlatform(rand() % 500, i * 50,"Rocket");
         }
         if(i == 8) {
-            viewController->addPlatform(rand() % 500, i * 50,"Speed");
+            viewController->addPlatform(rand() % 500, i * 50,"Shield");
         }
         if(i == 9) {
-            viewController->addPlatform(rand() % 500, i * 50,"Heart");
+            viewController->addPlatform(rand() % 500, i * 50,"Speed");
         }
         if(i == 10) {
-            viewController->addPlatform(rand() % 500, i * 50,"Shield");
+            viewController->addPlatform(rand() % 500, i * 50,"Heart");
         }
     }
     viewController->addPlatform(245, 590,"Green");
