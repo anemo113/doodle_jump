@@ -15,5 +15,8 @@
         <file>platform3.png</file>
         <file>platform4.png</file>
         <file>platform6.png</file>
+        <file>doodler2.png</file>
+        <file>platform5.png</file>
+        <file>background2.png</file>
     </qresource>
 </RCC>

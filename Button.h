@@ -8,6 +8,7 @@
 class Button: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
+
 public:
     //constructor
     Button(QString str);

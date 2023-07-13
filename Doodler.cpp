@@ -18,12 +18,14 @@ void Doodler::keyPressEvent(QKeyEvent *keyEvent)
 {
     //move to right
     if(keyEvent->key() == Qt::Key_Right){
-        setPos(x() + 10, y());
+        this->setPixmap(QPixmap(":/images/doodler.png"));
+        setPos(x() + 15, y());
     }
 
     //move to left
     if(keyEvent->key() == Qt::Key_Left){
-        setPos(x() - 10, y());
+        this->setPixmap(QPixmap(":/images/doodler2.png"));
+        setPos(x() - 15, y());
     }
 
     if(x() >= 530){
@@ -36,4 +38,6 @@ void Doodler::keyPressEvent(QKeyEvent *keyEvent)
     }
     Platform::doodler_xPos = x();
 }
+
+
 

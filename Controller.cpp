@@ -13,7 +13,7 @@ Controller::Controller(QObject *parent)
 
     // create timer
     ctimer = new QTimer();
-    ctimer->start(40);
+    ctimer->start(35);
 }
 
 Controller::~Controller()
@@ -22,9 +22,9 @@ Controller::~Controller()
     delete scene;
 }
 
-void Controller::addPlatform(int x, int y)
+void Controller::addPlatform(int x, int y,QString s)
 {
-    platformList.push_back(new Platform(scene,holder,ctimer, x, y));
+    platformList.push_back(new Platform(scene,holder,ctimer, x, y, s));
 }
 
 void Controller::addDoodler()

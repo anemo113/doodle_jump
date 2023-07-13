@@ -12,6 +12,7 @@ class Controller : public QObject
 {
     Q_OBJECT
     friend class View;
+    friend class Menu;
 private:
     QGraphicsScene *scene;
     QTimer *ctimer;
@@ -22,7 +23,7 @@ private:
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
-    void addPlatform(int x, int y);
+    void addPlatform(int x, int y,QString s);
     void addDoodler();
 
 signals:

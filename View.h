@@ -6,7 +6,6 @@
 #include <QTimer>
 #include "Controller.h"
 
-
 class View : public QGraphicsView
 {
     Q_OBJECT
@@ -21,7 +20,7 @@ public:
     ~View();
 
 public slots:
-    void incrementTime();
+    void incermentTime();
     void menu();
     void intro();
     void help();

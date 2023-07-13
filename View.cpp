@@ -1,7 +1,5 @@
 #include "View.h"
 #include "Button.h"
-#include <iostream>
-using namespace std;
 
 View::View() : QGraphicsView()
 {
@@ -19,6 +17,13 @@ View::View() : QGraphicsView()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    seconds = 0;
+    // set Timer
+    viewTimer = new QTimer();
+    viewTimer->start(1000);
+    // connect(viewTimer,SIGNAL(timeout()),this,SLOT(incermentTime()));
+
+
 }
 
 View::~View()
@@ -27,9 +32,8 @@ View::~View()
     delete viewController;
 }
 
-void View::incrementTime()
+void View::incermentTime()
 {
-
     ++seconds;
 
 }
@@ -46,7 +50,7 @@ void View::menu()
     viewController->scene->addItem(menuPic);
 
     //play button
-    Button * playButton = new Button("Play");
+    Button *playButton = new Button("Play");
     playButton->setPos(200, 375);
     connect(playButton, SIGNAL(clicked()), this, SLOT(intro()));
     viewController->scene->addItem(playButton);
@@ -86,7 +90,6 @@ void View::intro()
     multiButton->setPos(200, 575);
     connect(multiButton, SIGNAL(clicked()), this, SLOT(multiMode()));
     viewController->scene->addItem(multiButton);
-
 }
 
 void View::help()
@@ -119,11 +122,26 @@ void View::singleMode()
 
     // create platform
     for(int i = 0; i <= 12; i++){
-        if(i != 10){
-            viewController->addPlatform(rand() % 500, i * 60);
+        if(i != 10 && i%4 != 0 && i!=5 && i!=6 && i!=7 && i!=8){
+            viewController->addPlatform(rand() % 500, i * 60,"Green");
+        }
+        if(i%4 == 0 && i>0) {
+            viewController->addPlatform(rand() % 500, i * 60,"Brown");
+        }
+        if(i == 5) {
+            viewController->addPlatform(rand() % 500, i * 60,"Move");
+        }
+        if(i == 6) {
+            viewController->addPlatform(rand() % 500, i * 60,"Spring");
+        }
+        if(i == 7) {
+            viewController->addPlatform(rand() % 500, i * 60,"Rocket");
+        }
+        if(i == 8) {
+            viewController->addPlatform(rand() % 500, i * 60,"Speed");
         }
     }
-    viewController->addPlatform(245, 590);
+    viewController->addPlatform(245, 590,"Green");
 
     // create doodler
     viewController->addDoodler();
@@ -134,6 +152,11 @@ void View::multiMode()
 {
     //clear the screen
     viewController->scene->clear();
+
+    QGraphicsPixmapItem * meultiPic = new QGraphicsPixmapItem();
+    meultiPic->setPixmap(QPixmap(":/images/background2.png"));
+    meultiPic->setPos(0, 20);
+    viewController->scene->addItem(meultiPic);
 
     //back button
     Button * backButton = new Button("Back");
