@@ -120,19 +120,21 @@ void Platform::Move()
                 if(type2 == "Spring") { type = "Spring"; this->setPixmap(QPixmap(":/images/platform4.png")); }
                 if(type2 == "Rocket") { type = "Rocket"; this->setPixmap(QPixmap(":/images/platform5.png")); }
                 if(type2 == "Speed") { type = "Speed"; this->setPixmap(QPixmap(":/images/platform6.png")); }
-                if(type2 == "Shield") { type = "Shield"; this->setPixmap(QPixmap(":/images/shield.png")); }
+                if(type2 == "Shield"){
+                    if(shield == false) { type = "Shield"; this->setPixmap(QPixmap(":/images/shield.png")); }
+                    else { type = "Green"; this->setPixmap(QPixmap(":/images/platform1.png")); }
+                }
                 n++;
             }
             else { type = "Green"; this->setPixmap(QPixmap(":/images/platform1.png")); }
             k++;
         }
 
-        setPos(rand() % 500, 0);
+        setPos(rand() % 500, -15);
 
         if(type == "Green") strength = 5;
+        if(type == "Shield") strength = 1;
         if(type == "Brown") strength = 1;
-
-        //score++;
     }
 
     if(score >= 0 || shield == true){
