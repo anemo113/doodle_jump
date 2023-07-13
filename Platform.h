@@ -30,7 +30,6 @@ private:
 
 public:
     Platform(QGraphicsScene *platformScene,QGraphicsItem *parent, QTimer *timer, int x, int y,QString s);
-    void endOfGame();
 
 public slots:
     void Move();

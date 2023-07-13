@@ -85,11 +85,6 @@ Platform::Platform(QGraphicsScene *platformScene, QGraphicsItem *parent, QTimer 
     }
 }
 
-void Platform::endOfGame()
-{
-
-}
-
 void Platform::Move()
 {
 
